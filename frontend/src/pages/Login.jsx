@@ -37,12 +37,25 @@ export default function Login() {
     setF({ ...f, [name]: nuevo });
   };
 
-  const campo = (name, label, type = 'text') => (
-    <label>{label}
-      <input type={type} value={f[name]} onChange={handleChange} maxLength={name === 'nombre' ? 100 : undefined} />
-      {errors[name] && <span className="error">{errors[name]}</span>}
-    </label>
-  );
+  const campo = (name, label, type = 'text') => {
+    const autoComplete =
+      name === 'password'
+        ? (registro ? 'new-password' : 'current-password')
+        : name === 'nombre' ? 'name' : 'email';
+    return (
+      <label>{label}
+        <input
+          type={type}
+          name={name}
+          autoComplete={autoComplete}
+          value={f[name]}
+          onChange={handleChange}
+          maxLength={name === 'nombre' ? 100 : undefined}
+        />
+        {errors[name] && <span className="error">{errors[name]}</span>}
+      </label>
+    );
+  };
 
   return (
     <form className="card login" onSubmit={submit} noValidate>
