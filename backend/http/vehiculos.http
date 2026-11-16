@@ -1,0 +1,27 @@
+@url = http://localhost:3000/api
+@token = PEGAR_TOKEN_AQUI
+
+### Listar
+GET {{url}}/vehiculos
+Authorization: Bearer {{token}}
+
+### Crear
+POST {{url}}/vehiculos
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{ "marca": "Mercedes-Benz", "modelo": "Sprinter", "patente": "AB123CD", "anio": 2022, "capacidad_carga": 1500 }
+
+### Actualizar
+PUT {{url}}/vehiculos/1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{ "marca": "Mercedes-Benz", "modelo": "Sprinter 515", "patente": "AB123CD", "anio": 2022, "capacidad_carga": 1800 }
+
+### Eliminar
+DELETE {{url}}/vehiculos/1
+Authorization: Bearer {{token}}
+
+### Sin token (401)
+GET {{url}}/vehiculos

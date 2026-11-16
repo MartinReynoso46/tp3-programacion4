@@ -1,0 +1,19 @@
+@url = http://localhost:3000/api
+
+### Registro
+POST {{url}}/auth/register
+Content-Type: application/json
+
+{ "nombre": "Martín", "email": "martin@mail.com", "password": "123456" }
+
+### Login (copiá el token en @token de los otros archivos)
+POST {{url}}/auth/login
+Content-Type: application/json
+
+{ "email": "martin@mail.com", "password": "123456" }
+
+### Login con datos inválidos (400)
+POST {{url}}/auth/login
+Content-Type: application/json
+
+{ "email": "no-es-email", "password": "" }

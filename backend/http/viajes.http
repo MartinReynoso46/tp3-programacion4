@@ -1,0 +1,34 @@
+@url = http://localhost:3000/api
+@token = PEGAR_TOKEN_AQUI
+
+### Listar todos
+GET {{url}}/viajes
+Authorization: Bearer {{token}}
+
+### Historial por vehículo
+GET {{url}}/viajes?vehiculo_id=1
+Authorization: Bearer {{token}}
+
+### Historial por conductor
+GET {{url}}/viajes?conductor_id=1
+Authorization: Bearer {{token}}
+
+### Crear
+POST {{url}}/viajes
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{ "vehiculo_id": 1, "conductor_id": 1, "fecha_salida": "2026-11-01", "fecha_llegada": "2026-11-02",
+  "origen": "La Rioja", "destino": "Córdoba", "kilometros": 440, "observaciones": "Sin novedades" }
+
+### Actualizar
+PUT {{url}}/viajes/1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{ "vehiculo_id": 1, "conductor_id": 1, "fecha_salida": "2026-11-01", "fecha_llegada": "2026-11-02",
+  "origen": "La Rioja", "destino": "Córdoba", "kilometros": 450, "observaciones": "Ajuste de km" }
+
+### Eliminar
+DELETE {{url}}/viajes/1
+Authorization: Bearer {{token}}
